@@ -22,6 +22,7 @@
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
+    "react-scroll-motion": "^0.3.2",
     "typescript": "4.9.5"
   },
   "devDependencies": {

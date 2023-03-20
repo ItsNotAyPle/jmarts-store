@@ -48,25 +48,18 @@ const Sales = ({sales}:any) => {
 }
 
 const OrdersMadeToday = ({orders}:IOrdersMadeTodayProp) => {
-    const Order = (price:number, time:string) => {
-        return (
-            <p></p>
-        );
-    }
     return (
         <div className="w-1/4 h-60 ml-2 mt-2 bg-gray-400 border-black border-solid border-2 rounded-2xl text-center min-w-fit">
             <h1 className="underline font-bold text-5xl">Sales today</h1>
             <div className="flex flex-col">
-                {
-                    orders.forEach((value:IOrder, index:number) => {
+                {orders.map((value:IOrder, index:number) => {
                         return (
-                            <Order 
-                                price={value.price}
-                                time={value.datetime_ordered}
-                                key={index}
-                            />
-                        );
-                    });
+                            <div key={index}>
+                                <p>£{value.price}</p>
+                                <p>{value.datetime_ordered}</p>
+                            </div>
+                        )
+                    })
                 }
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next"
+import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
 
 import { Navbar } from "@/components/Navbar"
 import { Wrapper } from "@/components/Wrapper"
@@ -17,7 +17,7 @@ const Product = (product:IProduct) => {
   );
 }
 
-export default function Products({products}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Products({products}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <Wrapper>
       <Navbar />
@@ -46,13 +46,18 @@ export default function Products({products}: InferGetStaticPropsType<typeof getS
   );
 }
 
-export const getStaticProps:GetStaticProps<{ products: IProduct[] }> = async (context) => {
-  const res = await fetch("http://localhost:3000/api/getproducts");
-  const products: IProduct[] = await res.json();
+export const getServerSideProps:GetServerSideProps<{ products: IProduct[] }> = async (context:GetServerSidePropsContext) => {
+    const { range } = context.query;
 
-  return {
-    props: {
-      products
-    },
-  } 
+    if (range !== undefined) 
+    {
+        const res = await fetch("http://localhost:3000/api/getproducts");
+        const products: IProduct[] = await res.json();
+
+        return {
+          props: {
+            products
+          },
+        } 
+    }  else if (range === "") 
 }

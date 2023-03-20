@@ -16,7 +16,7 @@ export const Navbar = () => {
         <nav className="py-5">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
                 <a href="/">
-                    <h1 className="text-4xl font-bold">Hustler</h1>
+                    <h1 className="text-4xl font-bold">JM Arts</h1>
                 </a>
                 <ul className="flex flex-row items-center">
                     <NavItem href="/products" text="Products" />
