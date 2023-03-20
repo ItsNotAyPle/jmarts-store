@@ -10,6 +10,7 @@ export interface IProduct {
     description: string;
     is_mens:     boolean;
     is_public:   boolean;
+    range:       number;
 }
 
 export interface IOrder {

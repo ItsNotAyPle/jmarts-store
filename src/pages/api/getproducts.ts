@@ -17,6 +17,7 @@ const fetchAllProductsTEST = ():Promise<IProduct[]> => {
               "title": "White Hustler Shirt",
               "description": "Stylish cloudy white luxorious t-shirt for men",
               "is_mens": false,
+              "range" : 1,
               "is_public": true
             },
             {
@@ -30,6 +31,7 @@ const fetchAllProductsTEST = ():Promise<IProduct[]> => {
               "title": "Black Hustler Shirt",
               "description": "Stylish evil dark black luxorious t-shirt for men",
               "is_mens": false,
+              "range": 2,
               "is_public": true
             }
           ]

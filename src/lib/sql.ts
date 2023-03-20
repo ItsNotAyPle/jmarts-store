@@ -33,6 +33,33 @@ const fetchAllProducts = ():Promise<IProduct[]> => {
     });
 }
 
+
+// might be a strange way to fetch but it will easily prevent again SQL Injections
+const fetchAllProductsFromRange = (range:string):Promise<IProduct[]> => {
+    return new Promise((resolve, reject) => {
+        con.connect(function(err) {
+            if (err) reject(err);
+            
+            switch (range) {
+                case "Find the way":
+                    con.query("SELECT * FROM products WHERE range=1", (err:MysqlError, results:IProduct[]) => {
+                        if (err) reject(err);
+                        resolve(results);
+                    });
+                    break;
+                
+                case "Only we know":
+                    con.query("SELECT * FROM products WHERE range=2", (err:MysqlError, results:IProduct[]) => {
+                        if (err) reject(err);
+                        resolve(results);
+                    });
+                default:
+                    break;
+            }
+        })
+    })
+}
+
 const updateProduct = (product:IProduct):Promise<boolean> => {
     return new Promise((resolve, reject) => {
         con.connect(function(err) {
@@ -115,4 +142,4 @@ const fetchSalesFromToday  = ():Promise<IOrder[]> => {
 }
 
 
-export {insertNewProduct, fetchAllProducts, fetchProductByID, updateProduct, fetchOrders, fetchOrdersDetails, fetchSalesFromToday};
+export {insertNewProduct, fetchAllProducts, fetchProductByID, updateProduct, fetchOrders, fetchOrdersDetails, fetchSalesFromToday, fetchAllProductsFromRange};

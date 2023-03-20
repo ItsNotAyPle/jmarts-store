@@ -24,22 +24,27 @@ export default function Products({products}: InferGetServerSidePropsType<typeof 
       <div className="w-full h-full bg-blue-200 ">
         Products
         <div className="w-full grid grid-flow-col grid-cols-2 gap-4 justify-start">
-          {products.map((element, key) => {
-            return <Product 
-                  product_id={element.product_id}
-                  image_name_1={element.image_name_1} 
-                  image_name_2={element.image_name_2} 
-                  image_name_3={element.image_name_3} 
-                  image_name_4={element.image_name_4} 
-                  image_name_5={element.image_name_5} 
-                  image_name_6={element.image_name_6} 
-                  is_mens={element.is_mens}
-                  is_public={element.is_public}
-                  title={element.title}
-                  description={element.description}
-                  key={key}
-              />
-          })}
+          {
+            products.map((element, key) => {
+              return (
+                <Product 
+                    product_id={element.product_id}
+                    image_name_1={element.image_name_1} 
+                    image_name_2={element.image_name_2} 
+                    image_name_3={element.image_name_3} 
+                    image_name_4={element.image_name_4} 
+                    image_name_5={element.image_name_5} 
+                    image_name_6={element.image_name_6} 
+                    is_mens={element.is_mens}
+                    is_public={element.is_public}
+                    title={element.title}
+                    description={element.description}
+                    range={element.range}
+                    key={key}
+                />
+              )}
+            )
+          }
         </div>
       </div>
     </Wrapper>
@@ -48,16 +53,26 @@ export default function Products({products}: InferGetServerSidePropsType<typeof 
 
 export const getServerSideProps:GetServerSideProps<{ products: IProduct[] }> = async (context:GetServerSidePropsContext) => {
     const { range } = context.query;
-
-    if (range !== undefined) 
-    {
-        const res = await fetch("http://localhost:3000/api/getproducts");
+    if (range === "Find the way") {
+        const res = await fetch("http://localhost:3000/api/getproducts?range='Find The Way'")
         const products: IProduct[] = await res.json();
 
         return {
           props: {
             products
-          },
-        } 
-    }  else if (range === "") 
-}
+          }
+        }
+    }
+     
+    const res = await fetch("http://localhost:3000/api/getproducts");
+    const products: IProduct[] = await res.json();
+    
+    return {
+      props: {
+        products
+      }
+    }   
+
+
+} 
+
