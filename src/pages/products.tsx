@@ -3,27 +3,43 @@ import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsT
 import { Navbar } from "@/components/Navbar"
 import { Wrapper } from "@/components/Wrapper"
 import { IProduct } from "@/lib/interfaces"
+import { useState } from "react"
 
 const Product = (product:IProduct) => {
   return (
-    <div className="w-fit h-full ">
-      <img src={`images/${product.image_name_1}.png`} />
-      <div>
-        <h2>{product.title}</h2>
-        <p>Men's Clothing</p>
-        <h1>$300</h1>
+    <a href={`/product?id='${product.product_id}'`} className="">
+      <div className="w-fit h-full flex-wrap border-gray-700 hover:border-green-600 border-2 mx-2">
+        <img src={`images/${product.image_name_1}`} />
+        <div className="bg-gray-500 pt-2">
+          <p className="pl-4 font-bold py-2">{product.title}</p>
+          <p className="pl-4 font-bold py-4">$300</p>
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
 
+// const SearchBar = (rangeHook:any, setRangeHook:Function) => {
+//   return (
+//     <div className="bg-gray-500 h-5 w-full">
+//       <select name="" value={rangeHook} onChange={e => setRangeHook(e.target.value)}>
+//         <option value="">All</option>
+//         <option value="">Find the way</option>
+//         <option value="">Only we know</option>
+//       </select>
+//     </div>
+//   );
+// }
+
 export default function Products({products}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  // const [range, setRange] = useState(["All", "Find the way", "Only we know"]);
+
   return (
     <Wrapper>
       <Navbar />
-      <div className="w-full h-full bg-blue-200 ">
-        Products
-        <div className="w-full grid grid-flow-col grid-cols-2 gap-4 justify-start">
+      {/* <SearchBar rangeHook={range} setRangeHook={setRange} /> */}
+      <div className="w-full h-screen bg-blue-200 ">
+        <div className="w-full min-h-fit flex flex-col sm:flex-row justify-center md:justify-start  p-5">
           {
             products.map((element, key) => {
               return (
