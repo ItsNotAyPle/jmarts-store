@@ -10,5 +10,6 @@ CREATE TABLE IF NOT EXISTS `products` (
     `description` TEXT,
     `is_mens` BOOLEAN NOT NULL,
     `is_public` BOOLEAN DEFAULT FALSE,
-    `range` TINYINY DEFAULT 0, -- Range will be an int. (1 = 'find the way'... etc)
+    `range` TINYINT DEFAULT 0, -- Range will be an int. (1 = 'find the way'... etc)
+    `price` SMALLINT DEFAULT 0
 );

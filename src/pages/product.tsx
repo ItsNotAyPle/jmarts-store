@@ -9,32 +9,18 @@ const ProductPage = ({product}:InferGetServerSidePropsType<typeof getServerSideP
     return (
         <Wrapper>
             <Navbar />
-            <div className="flex flex-row h-full w-full justify-center ">
-                <div className="">
-                    <img src={`/images/${product.image_name_1}`} />
-                </div>
-                <div className="w-1/4 h-fit">
-                    <form action="">
-                        <input type="hidden" name="id" value={product.product_id} />
-                        <select className="w-full text-center font-semibold p-2 " name="size" id="size">
-                            <option value="Small">Small</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Large">Large</option>
-                        </select>
-                        <input 
-                            type="number" 
-                            name="quantity" 
-                            defaultValue={1}
-                            min={1}
-                            max={10}
-                        />
-                        <input
-                            className="w-1/3 bg-green-500 text-center font-semibold text-white " 
-                            type="submit" 
-                            value="Add to cart" 
-                        />
-                    </form>
-                </div>
+            <div className="w-full h-full pt-24">
+                <ul className="w-full bg-black">
+                    <tr>
+                        <img className="m-2 border-4 border-gray-600" src={`/images/${product.image_name_1}`} />
+                        <img className="m-2 border-4 border-gray-600" src={`/images/${product.image_name_1}`} />
+                        <img className="m-2 border-4 border-gray-600" src={`/images/${product.image_name_1}`} />
+                        <img className="m-2 border-4 border-gray-600" src={`/images/${product.image_name_1}`} />
+                    </tr>
+                    <tr>
+
+                    </tr>
+                </ul>
             </div>
         </Wrapper>
     );
