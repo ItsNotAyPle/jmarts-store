@@ -76,7 +76,7 @@ const Members = () => {
 
 	const MemberCard = (props:IMemberCardProps) => {
 		return (
-			<div className="w-72 h-fit bg-blue border-indigo-600 border-2 rounded-bl-2xl rounded-br-2xl hover:cursor-pointer mx-2" onClick={e => setCurrentMember(props.member_id)}>
+			<div className="w-72 h-fit bg-blue border-indigo-600 border-2 rounded-bl-2xl rounded-br-2xl hover:cursor-pointer hover:animate-pulse mx-2" onClick={e => setCurrentMember(props.member_id)}>
 				<img className="h-full" src={props.img_src} />
 				<h1 className="font-bold text-xl text-white text-center bg-indigo-600 rounded-bl-xl rounded-br-xl">{props.name}</h1>
 			</div>
