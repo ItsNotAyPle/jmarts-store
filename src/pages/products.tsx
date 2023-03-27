@@ -12,7 +12,7 @@ const Product = (product:IProduct) => {
         <img src={`images/${product.image_name_1}`} />
         <div className="bg-gray-500 pt-2">
           <p className="pl-4 font-bold py-2">{product.title}</p>
-          <p className="pl-4 font-extrabold py-4">$300</p>
+          <p className="pl-4 font-bold py-4">$300</p>
         </div>
       </div>
     </a>
