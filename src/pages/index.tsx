@@ -1,37 +1,66 @@
 import { Navbar } from "@/components/Navbar"
 import { Wrapper } from "@/components/Wrapper"
-import { Animator, batch, FadeIn, MoveOut, ScrollContainer, ScrollPage, Sticky, StickyIn, Zoom, ZoomIn } from "react-scroll-motion"
 import Image from "next/image"
+import Script from "next/script"
+import Head from "next/head"
+import { useEffect, useState } from "react"
+
+const Projects = () => {
+	return (
+		<div className="bg-black w-full text-white ">
+			<div className="w-full h-full flex pt-20 justify-center">
+				<div className="">
+					<h1 className="w-full font-bold text-3xl py-8">
+						ONLY WE KNOW: upcoming project
+					</h1>
+					<img 
+						src="/static/owk.png" 
+						className="pl-10"
+					/>
+				</div>
+			</div>
+			<div className="w-full h-full pt-20">
+				<div>
+					<h1 className="w-fullfont-bold text-3xl py-8">
+						Find the way
+					</h1>
+					<p className="">
+						“Find the way” is a t-shirt that inspires people. “ Find the way” 
+						has a design of a dragon at the back and the quote “Find the way” 
+						in Cantonese at the front. The design has an inspirational message 
+						about never giving up and perseverance. This message inspires the young 
+						generation to fight for their dreams and to be a light in the darkness.
+					</p>
+					<img 
+						src="/static/owk.png" 
+						className="pl-10"
+					/>
+
+				</div>
+			</div>	
+		</div>
+	);
+}
 
 export default function Home() {
   	return (
   	  	<Wrapper>
+			{/* <Head>
+				<Script src="/statc/js/slideshow.js" />
+			</Head> */}
   	  	  	<Navbar />
-			<div className="w-full h-full" style={{backgroundImage: "url('/static/watercolor.png')"}}>
+			<div className="w-full h-full " style={{backgroundImage: "url('/static/watercolor.png')"}}>
 				<div className="grid place-items-center w-full h-full">
 					<div className="pb-28">
 						<p className="text-4xl text-center lg:text-8xl font-extrabold">JM Arts</p>
-						<p className="text-l lg:text-2xl text-center font-bold border-t-2 border-black">Where fasion meets art</p>
+						<p className="text-l lg:text-2xl text-center font-bold border-t-2 border-black">
+							Where fashion meets art
+						</p>
 					</div>
 				</div>
-				<div className="bg-black w-full h-full">
-					<img 
-						src="/static/jmarts.png" 
-						className="pt-20 pl-10"
-					/>
-					<h1>What is JMarts?</h1>
-					<p>JM Arts is a company that combines art with fashion. A company that targets the new 
-						generation and inspires them to let their imagination shine. It is for people who 
-						are crazy, unconventional, different, and unique. We want them to show this with 
-						our wild revolutionary designs. We are a company that uses the power of art to 
-						communicate happiness and creativity in a way that could not otherwise be described. 
-						JM Arts is a company that wants to inspire the new generation to let their imagination 
-						flow freely and not be afraid to be themselves, without compromising style and fashion. 
-						JM Arts is a company that tries to revolutionize the new generation using digital and 
-						traditional ways of art. JM Arts uses art with a high level of meaning or message to 
-						the world and society itself.
-					</p>
-				</div>
+				{/* <ArtSlideshow /> */}
+
+				<Projects />
 			</div>
 			{/* TODO: add some sample products */}
   	  	</Wrapper>

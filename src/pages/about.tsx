@@ -49,7 +49,16 @@ thus why they decided to turn their creativity into a business that will revolut
 the way art and fashion are made. `
 
 const JMARTS_TEXT = `
-
+JM Arts is a company that combines art with fashion. A company that targets the new 
+generation and inspires them to let their imagination shine. It is for people who 
+are crazy, unconventional, different, and unique. We want them to show this with 
+our wild revolutionary designs. We are a company that uses the power of art to 
+communicate happiness and creativity in a way that could not otherwise be described. 
+JM Arts is a company that wants to inspire the new generation to let their imagination 
+flow freely and not be afraid to be themselves, without compromising style and fashion. 
+JM Arts is a company that tries to revolutionize the new generation using digital and 
+traditional ways of art. JM Arts uses art with a high level of meaning or message to 
+the world and society itself.
 `
 
 const Members = () => {
@@ -100,9 +109,9 @@ const Members = () => {
 					member_id={1}
 				/>
 			</div>
-			<div className="w-full bg-black text-white h-full ">
+			<div className="w-full h-fit bg-black text-white pb-20">
 				<h1 className="py-4 text-3xl font-extrabold text-center">Who is {name}?</h1>
-				<p className="text-lg px-20 text-justify">{text}</p>
+				<p className="text-sm px-5 md:text-lg md:px-20 text-justify">{text}</p>
 			</div>
 		</div>
 	);
