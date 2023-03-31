@@ -11,6 +11,7 @@ export interface IProduct {
     is_mens:     boolean;
     is_public:   boolean;
     range:       number;
+    stock:       number;
 }
 
 export interface IOrder {

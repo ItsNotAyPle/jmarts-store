@@ -66,6 +66,8 @@ export default function Products ({products}: InferGetServerSidePropsType<typeof
                           is_public={product.is_public}
                           title={product.title}
                           description={product.description}
+                          stock={product.stock}
+                          range={product.range}
                           key={key}
                         />
                       );
