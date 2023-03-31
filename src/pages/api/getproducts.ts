@@ -18,7 +18,8 @@ const fetchAllProductsTEST = ():Promise<IProduct[]> => {
               "description": "Stylish cloudy white luxorious t-shirt for men",
               "is_mens": false,
               "range" : 1,
-              "is_public": true
+              "is_public": true,
+              "stock": 10
             },
             {
               "product_id": "Bsdhdhd",
@@ -32,7 +33,8 @@ const fetchAllProductsTEST = ():Promise<IProduct[]> => {
               "description": "Stylish evil dark black luxorious t-shirt for men",
               "is_mens": false,
               "range": 2,
-              "is_public": true
+              "is_public": true,
+              "stock": 10
             }
           ]
       );

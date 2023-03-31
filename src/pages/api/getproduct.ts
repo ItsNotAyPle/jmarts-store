@@ -24,6 +24,7 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<IProd
       "description": "Stylish cloudy white luxorious t-shirt for men",
       "is_mens": false,
       "is_public": true,
-      "range": 0
+      "range": 0,
+      "stock": 10
     });
 }

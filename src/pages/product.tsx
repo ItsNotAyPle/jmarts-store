@@ -3,9 +3,11 @@ import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsT
 import { redirect } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Wrapper } from "@/components/Wrapper";
+import { useEffect, useState } from "react";
 
 const ProductPage = ({product}:InferGetServerSidePropsType<typeof getServerSideProps>) => {
     console.log(product);
+    console.log(product.stock)
     return (
         <Wrapper>
             <Navbar />
@@ -16,24 +18,39 @@ const ProductPage = ({product}:InferGetServerSidePropsType<typeof getServerSideP
                     <img className="m-2 border-4 border-gray-600" src={`/images/${product.image_name_1}`} />
                     <img className="m-2 border-4 border-gray-600" src={`/images/${product.image_name_1}`} />    
                 </div>
-                <div className="w-1/4 mx-28 text-center">
-                    <h1 className="text-2xl font-bold">{product.title}</h1>
-                    <p className="mt-10 py-4  border-black">bdxbdsfhgdsh{product.description}</p>
+                <div className="w-1/4 mx-28">
+                    <h1 className="text-center text-2xl font-bold">{product.title}</h1>
+                    <p className="text-center mt-10 py-4  border-black">bdxbdsfhgdsh{product.description}</p>
                     <form className="" action="/">
-                        <input type="hidden" name="id" value={product.product_id} />
-                        <select className="w-full text-center p-2 font-bold mt-10" name="sizes" id="sizes">
-                            <option value="small">small</option>
-                            <option value="medium">medium</option>
-                            <option value="large">large</option>
-                        </select>
-                        <input 
-                            type="number" 
-                            name="quantity"
-                            id="quantity" 
-                            defaultValue={1}
-                            min={1}
-                            max={product.stock}
-                        />
+                        <ul>
+                            <li>
+                                <input type="hidden" name="id" value={product.product_id} />
+
+                            </li>
+                            <li>
+                                <select className="w-full text-center p-2 font-bold mt-10" name="sizes" id="sizes">
+                                    <option value="small">small</option>
+                                    <option value="medium">medium</option>
+                                    <option value="large">large</option>
+                                </select>
+                            </li>
+                            <li>
+                                <input 
+                                    className="outline outline-1 w-8"
+                                    type="number" 
+                                    name="quantity"
+                                    id="quantity" 
+                                    defaultValue={1}
+                                    min={1}
+                                    max={product.stock}
+                                />
+                                <input 
+                                    className=""
+                                    type="submit" 
+                                    value="submit" 
+                                />
+                            </li>
+                        </ul>
                     </form>
                 </div>
             </div>
