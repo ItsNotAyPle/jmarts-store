@@ -11,6 +11,8 @@ const NavItem = (props:INavItemProps) => {
     );
 }
 
+
+
 export const Navbar = () => {
     return (
         <nav className="py-5">
@@ -22,6 +24,7 @@ export const Navbar = () => {
                     <NavItem href="/products" text="Products" />
                     <NavItem href="/about" text="About" />
                     <NavItem href="/contact" text="Contact" />
+                    <NavItem href="/cart" text="Basket" />
                 </ul>
             </div>
         </nav>

@@ -31,3 +31,14 @@ export interface IOrderDetails {
 export type InternalErrorReturn = {
     message:string;
 }
+
+export type ClothingSize = 'small' | 'medium' | 'large';
+
+export interface ICartItem {
+    product_name:string;
+    img_src:string;
+    product_id:string;
+    size:string;
+    quantity:number;
+}
+

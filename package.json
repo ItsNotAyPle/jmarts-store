@@ -16,12 +16,12 @@
     "chart.js": "^4.2.1",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
-    "js-cookie": "^3.0.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.2.0",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
     "react-scroll-motion": "^0.3.2",
     "typescript": "4.9.5"

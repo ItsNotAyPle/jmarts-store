@@ -7,7 +7,8 @@ const con = createConnection({
     host: "localhost",
     user: "username",
     password: "password",
-    database: "hustlerdb"
+    database: "hustlerdb",
+    multipleStatements:false
 });
 
 
@@ -142,4 +143,13 @@ const fetchSalesFromToday  = ():Promise<IOrder[]> => {
 }
 
 
-export {insertNewProduct, fetchAllProducts, fetchProductByID, updateProduct, fetchOrders, fetchOrdersDetails, fetchSalesFromToday, fetchAllProductsFromRange};
+export {
+    insertNewProduct, 
+    fetchAllProducts, 
+    fetchProductByID, 
+    updateProduct, 
+    fetchOrders, 
+    fetchOrdersDetails, 
+    fetchSalesFromToday, 
+    fetchAllProductsFromRange
+};
