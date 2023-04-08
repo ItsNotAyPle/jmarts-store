@@ -12,6 +12,7 @@ export interface IProduct {
     is_public:   boolean;
     range:       number;
     stock:       number;
+    price:       number;
 }
 
 export interface IOrder {
@@ -40,5 +41,6 @@ export interface ICartItem {
     product_id:string;
     size:string;
     quantity:number;
+    price:number;
 }
 

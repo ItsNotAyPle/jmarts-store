@@ -7,6 +7,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { escape } from "mysql2";
 
+
+
 const ProductPage = ({ product }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const [cookies, setCookie] = useCookies(['cart']);
 
@@ -25,7 +27,8 @@ const ProductPage = ({ product }: InferGetServerSidePropsType<typeof getServerSi
                         'size': size,
                         'quantity': quantity,
                         'img_src': product.image_name_1,
-                        'product_name': product.title
+                        'product_name': product.title,
+                        'price':product.price
                     }
                 ]),
                 {
