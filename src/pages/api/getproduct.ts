@@ -25,6 +25,7 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<IProd
       "is_mens": false,
       "is_public": true,
       "range": 0,
-      "stock": 10
+      "stock": 10,
+      'price': 50
     });
 }

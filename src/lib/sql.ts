@@ -1,7 +1,8 @@
 import { RowDataPacket, createConnection } from "mysql2";
-import { IOrderDetails, IProduct } from '@/lib/interfaces';
+import { IOrderDetails, IOrderPostForm, IProduct } from '@/lib/interfaces';
 import { IOrder } from "@/lib/interfaces"
 import { MysqlError } from "mysql";
+import randomstring from "./randomstring";
 
 const con = createConnection({
     host: "localhost",
@@ -127,7 +128,7 @@ const fetchOrdersDetails = (order_id:string):Promise<IOrderDetails[]> => {
     });
 }
 
-const fetchSalesFromToday  = ():Promise<IOrder[]> => {
+const fetchSalesFromToday  = async ():Promise<IOrder[]> => {
     return new Promise((resolve, reject) => {
         con.connect(function(err) {
             if (err) reject(err);
@@ -142,12 +143,66 @@ const fetchSalesFromToday  = ():Promise<IOrder[]> => {
     });
 }
 
+const insertNewOrder = async (props:IOrderPostForm):Promise<boolean> => {
+    return await new Promise((resolve, reject) => {
+        con.connect(function(err) {
+            if (err) reject(err);
+            const id = randomstring(20);
+            
+            con.query(`INSERT INTO orders 
+                    (
+                        order_id, 
+                        firstname, 
+                        lastname, 
+                        address, 
+                        postcode, 
+                        email, 
+                        price
+                    ) VALUES ('?','?','?','?','?','?',?)`, 
+                [
+                    id,
+                    props.first_name,
+                    props.last_name,
+                    props.address,
+                    props.postcode,
+                    props.email,
+                    props.price
+                ], (err, result) => {
+                    if (err) reject(err);
+                    console.log(result);
+                }
+            );
+
+            props.cart.forEach((product, key:number) => {
+                con.query(`INSERT INTO order_details 
+                        (
+                            order_id, 
+                            product_id, 
+                            quantity, 
+                            price
+                        ) VALUES ('?', ?, ?, ?)`,
+                        [
+                            id,
+                            product.id,
+                            product.quantity,
+                            product.price
+                        ], (err, result) => {
+                            if (err) reject(err);
+                            console.log(result);
+                        }
+                    )
+                }
+            );
+        })
+    });
+}
 
 export {
     insertNewProduct, 
+    updateProduct, 
+    insertNewOrder,
     fetchAllProducts, 
     fetchProductByID, 
-    updateProduct, 
     fetchOrders, 
     fetchOrdersDetails, 
     fetchSalesFromToday, 

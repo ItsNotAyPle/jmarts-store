@@ -41,7 +41,7 @@ const ProductPage = ({ product }: InferGetServerSidePropsType<typeof getServerSi
 
         let basket: Array<ICartItem> = cookies.cart;
         for (let i = 0; i < basket.length; i++) {
-            if (basket[i].product_id == id && basket[i].size == size) {
+            if (basket[i].id == id && basket[i].size == size) {
                 basket[i].quantity = basket[i].quantity + quantity;
                 setCookie("cart", JSON.stringify(basket));
                 console.log("Added on!");
@@ -67,11 +67,8 @@ const ProductPage = ({ product }: InferGetServerSidePropsType<typeof getServerSi
                     <h1 className="text-center text-2xl font-bold">{product.title}</h1>
                     <p className="text-center mt-10 py-4  border-black">bdxbdsfhgdsh{product.description}</p>
                     <form className="" method="GET" action="/cart" onSubmit={e => onFormSubmit(e)}>
+                        <input type="hidden" name="id" value={product.product_id} />
                         <ul>
-                            <li>
-                                <input type="hidden" name="id" value={product.product_id} />
-
-                            </li>
                             <li>
                                 <select className="w-full text-center p-2 font-bold mt-10" name="sizes" id="sizes">
                                     <option value="small">small</option>

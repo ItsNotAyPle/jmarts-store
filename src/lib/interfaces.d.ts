@@ -38,9 +38,21 @@ export type ClothingSize = 'small' | 'medium' | 'large';
 export interface ICartItem {
     product_name:string;
     img_src:string;
-    product_id:string;
+    id:string;
     size:string;
     quantity:number;
     price:number;
 }
+
+
+export interface IOrderPostForm {
+    first_name:string;
+    last_name:string;
+    address:string;
+    postcode:string;
+    email:string;
+    price:number;
+    cart:Array<ICartItem>;
+}
+
 

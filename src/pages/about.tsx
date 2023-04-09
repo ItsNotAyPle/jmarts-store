@@ -61,6 +61,17 @@ traditional ways of art. JM Arts uses art with a high level of meaning or messag
 the world and society itself.
 `
 
+const JMART_TEXT_2 = `
+JM Arts is unique because is created by a 16-year-old boy, meaning he understands 
+the audience's needs and likes and can easily attract the new generation. Whereas, 
+if you look at brands like Nike, Adidas and etc. They all have the same meaning. 
+Nike has a “Just do it” quote in all their products. So if you see, JM Arts is 
+unique as every product released has new designs and different quotes that 
+portray different meanings with context. JM Arts is unique as it combines 
+fashion and art to show a message to society but mostly the new generation. 
+The quality of the clothes is comfortable and at a good price.
+`
+
 const Members = () => {
 	const [member, setCurrentMember] = useState(0);
 	const [text, setText] = useState("");
@@ -121,9 +132,17 @@ export default function Home() {
   	return (
 		<Wrapper>
 			<Navbar />
-			<div>
-				<h1>What is JMarts?</h1>
-				<p></p>
+			<div className="bg-black text-white">
+				<div className="flex flex-col md:flex-row">
+					<div className="w-full border-none md:w-1/2 md:border-r-2 border-white px-4">
+						<h1 className="text-2xl font-bold text-center">What is JMarts?</h1>
+						<p className="text-justify">{JMARTS_TEXT}</p>
+					</div>
+					<div className="w-full border-none pt-12 md:pt-0 md:w-1/2 md:border-l-2 border-white px-4">
+						<h1 className="text-2xl font-bold text-center"> What makes JMarts unique?</h1>
+						<p className="text-justify">{JMART_TEXT_2}</p>
+					</div>
+				</div>
 			</div>
 			<div className="w-full h-full">
 				<Members />
