@@ -63,6 +63,7 @@ export default function Products({products}: InferGetServerSidePropsType<typeof 
                     title={element.title}
                     description={element.description}
                     range={element.range}
+                    price={element.price}
                     key={key}
                 />
               )}

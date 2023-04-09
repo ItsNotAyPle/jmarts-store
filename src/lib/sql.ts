@@ -6,8 +6,8 @@ import randomstring from "./randomstring";
 
 const con = createConnection({
     host: "localhost",
-    user: "username",
-    password: "password",
+    user: String(process.env.MYSQL_USERNAME),
+    password: String(process.env.MYSQL_PASS),
     database: "hustlerdb",
     multipleStatements:false
 });
