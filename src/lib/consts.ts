@@ -1,0 +1,1 @@
+export const SERVER_DOMAIN:string = String(process.env.domain);

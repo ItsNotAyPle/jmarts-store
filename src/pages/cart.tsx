@@ -4,7 +4,7 @@ import { ICartItem } from "@/lib/interfaces";
 import Image from "next/image";
 import { useCookies } from "react-cookie";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 
 var totalprice:number = 0;
@@ -30,10 +30,6 @@ const CartPage = () => {
             return removeCookie("cart");
 
         setCookie("cart", JSON.stringify(tempcart));
-    }
-
-    const validateForm = () => {
-
     }
     
     const Cart = () => {
@@ -68,8 +64,6 @@ const CartPage = () => {
             </div>
         );
     }
-
-
 
     const InfoSubmission = () => {
         return (

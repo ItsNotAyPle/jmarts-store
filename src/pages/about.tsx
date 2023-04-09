@@ -5,9 +5,9 @@ import Image from "next/image"
 import { useEffect, useState } from "react";
 
 interface IMemberCardProps {
-	img_src:string;
-	name:string;
-	member_id:number;
+	img_src: string;
+	name: string;
+	member_id: number;
 }
 
 const JUAN_TEXT = `
@@ -91,10 +91,10 @@ const Members = () => {
 				break;
 
 		}
-		
+
 	}, [member]);
 
-	const MemberCard = (props:IMemberCardProps) => {
+	const MemberCard = (props: IMemberCardProps) => {
 		return (
 			<div className="w-72 h-fit bg-blue border-indigo-600 border-2 rounded-bl-2xl rounded-br-2xl hover:cursor-pointer hover:animate-pulse mx-2" onClick={e => setCurrentMember(props.member_id)}>
 				<img className="h-full" src={props.img_src} />
@@ -109,12 +109,12 @@ const Members = () => {
 				<h1 className="text-white text-2xl text-center font-bold">Meet the team</h1>
 			</div>
 			<div className="flex flex-row justify-center my-12">
-				<MemberCard 
+				<MemberCard
 					img_src="/static/juan-01.jpg"
 					name="Juan Mesa"
 					member_id={0}
 				/>
-				<MemberCard 
+				<MemberCard
 					img_src="/static/calos-01.jpg"
 					name="Carlos Mesa"
 					member_id={1}
@@ -129,7 +129,7 @@ const Members = () => {
 }
 
 export default function Home() {
-  	return (
+	return (
 		<Wrapper>
 			<Navbar />
 			<div className="bg-black text-white">
@@ -147,6 +147,6 @@ export default function Home() {
 			<div className="w-full h-full">
 				<Members />
 			</div>
-  	  	</Wrapper>
-  	)
+		</Wrapper>
+	)
 }

@@ -19,21 +19,26 @@ const Projects = () => {
 					/>
 				</div>
 			</div>
-			<div className="w-full h-full pt-20">
-				<div>
-					<h1 className="w-fullfont-bold text-3xl py-8">
-						Find the way
-					</h1>
-					<p className="">
-						“Find the way” is a t-shirt that inspires people. “ Find the way” 
-						has a design of a dragon at the back and the quote “Find the way” 
-						in Cantonese at the front. The design has an inspirational message 
-						about never giving up and perseverance. This message inspires the young 
-						generation to fight for their dreams and to be a light in the darkness.
-					</p>
-					<img 
-						src="/static/owk.png" 
-						className="pl-10"
+			<div className="w-full h-full pt-40">
+				<div className="flex flex-col md:flex-row">
+					<div>
+						<h1 className="w-full font-bold text-3xl text-center py-8">
+							Find the way
+						</h1>
+						<p className="text-justify px-2 mb-2 md:px-8 md:m-0">
+							“Find the way” is a t-shirt that inspires people. “ Find the way” 
+							has a design of a dragon at the back and the quote “Find the way” 
+							in Cantonese at the front. The design has an inspirational message 
+							about never giving up and perseverance. This message inspires the young 
+							generation to fight for their dreams and to be a light in the darkness.
+						</p>
+					</div>
+					<Image 
+						src="/static/juan-01-transformed.png" 
+						className=""
+						alt="ftw picture"
+						width={850}
+						height={800}
 					/>
 
 				</div>

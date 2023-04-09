@@ -6,7 +6,7 @@ import { Wrapper } from "@/components/Wrapper";
 import { FormEvent, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { escape } from "mysql2";
-
+import { DOMAIN as SERVER_DOMAIN } from "@/lib/consts";
 
 
 const ProductPage = ({ product }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -112,7 +112,7 @@ export const getServerSideProps: GetServerSideProps<{ product: IProduct }> = asy
     }
 
 
-    const res = await fetch(`http://localhost:3000/api/getproduct?id=${id}`)
+    const res = await fetch(`${SERVER_DOMAIN}/api/getproduct?id=${id}`)
 
     if (res.status === 200) {
         const product: IProduct = await res.json();

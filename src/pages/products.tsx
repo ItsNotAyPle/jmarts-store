@@ -4,6 +4,13 @@ import { Navbar } from "@/components/Navbar"
 import { Wrapper } from "@/components/Wrapper"
 import { IProduct } from "@/lib/interfaces"
 import { useState } from "react"
+import { SERVER_DOMAIN } from "@/lib/consts"
+
+
+
+
+
+
 
 const Product = (product:IProduct) => {
   return (
@@ -70,7 +77,7 @@ export default function Products({products}: InferGetServerSidePropsType<typeof 
 export const getServerSideProps:GetServerSideProps<{ products: IProduct[] }> = async (context:GetServerSidePropsContext) => {
     const { range } = context.query;
     if (range === "Find the way") {
-        const res = await fetch("http://localhost:3000/api/getproducts?range='Find The Way'")
+        const res = await fetch(SERVER_DOMAIN + "/api/getproducts?range='Find The Way'")
         const products: IProduct[] = await res.json();
 
         return {
@@ -80,7 +87,7 @@ export const getServerSideProps:GetServerSideProps<{ products: IProduct[] }> = a
         }
     }
      
-    const res = await fetch("http://localhost:3000/api/getproducts");
+    const res = await fetch(SERVER_DOMAIN + "/api/getproducts");
     const products: IProduct[] = await res.json();
     
     return {
